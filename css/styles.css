@@ -216,7 +216,6 @@ body {
 #boxes {
   display: none;
   flex-wrap: wrap;
-  gap: 8px;
 }
 
 #controls {

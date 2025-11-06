@@ -9,42 +9,42 @@ const createBtn = document.querySelector("#create-btn");
 const destroyBtn = document.querySelector("#destroy-btn");
 const boxesContainer = document.querySelector("#boxes");
 
- function createBoxes (amount) {
-    boxesContainer.innerHTML = "";
+function createBoxes(amount) {
+  boxesContainer.innerHTML = "";
 
-    if(amount < 1 || amount > 100) {
-        alert("Please enter a number between 1 and 100");
-        return;
-    }
+  if (amount < 1 || amount > 100) {
+    alert("Please enter a number between 1 and 100");
+    return;
+  }
 
-    const boxes = [];
-    let size = 30;
+  const boxes = [];
+  let size = 30;
 
-    for (let i = 0; i < amount; i++) {
-        const box = document.createElement("div");
-        box.style.width = `${size}px`;
-        box.style.height = `${size}px`;
-        box.style.backgroundColor = getRandomHexColor();
-        box.style.margin = "5px";
-        box.style.display = "inline-block";
-        box.style.borderRadius ="4px";
-        boxes.push(box);
-        size += 10;
-    }
+  for (let i = 0; i < amount; i++) {
+    const box = document.createElement("div");
+    box.style.width = `${size}px`;
+    box.style.height = `${size}px`;
+    box.style.backgroundColor = getRandomHexColor();
+    box.style.margin = "5px";
+    box.style.display = "inline-block";
+    box.style.borderRadius = "4px";
+    boxes.push(box);
+    size += 10;
+  }
 
-    console.log(...boxes);
+  boxesContainer.append(...boxes);
+  boxesContainer.style.display = "flex";
+}
 
-    boxesContainer.append(boxes);
- }
+function destroyBoxes() {
+  boxesContainer.innerHTML = "";
+  boxesContainer.style.display = "none";
+}
 
- function destroyBoxes() {
-    boxesContainer.innerHTML = "";
- }
+createBtn.addEventListener("click", () => {
+  const amount = Number(input.value.trim());
+  createBoxes(amount);
+  input.value = "";
+});
 
- createBtn.addEventListener("click", () => {
-    const amount = Number(input.value.trim());
-    createBoxes(amount);
-    input.value = "";
- });
-
- destroyBtn.addEventListener("click", destroyBoxes);
+destroyBtn.addEventListener("click", destroyBoxes);
