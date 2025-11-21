@@ -215,8 +215,7 @@ body {
 
 #boxes {
   display: none;
-  flex-wrap: wrap;
-}
+  flex-wrap: wrap;}
 
 #controls {
   display: flex;
